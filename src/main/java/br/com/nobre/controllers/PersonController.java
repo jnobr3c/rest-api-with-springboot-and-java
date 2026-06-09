@@ -1,6 +1,6 @@
 package br.com.nobre.controllers;
 
-import br.com.nobre.PersonServices;
+import br.com.nobre.services.PersonServices;
 import br.com.nobre.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

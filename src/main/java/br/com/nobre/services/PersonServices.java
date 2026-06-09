@@ -1,4 +1,4 @@
-package br.com.nobre;
+package br.com.nobre.services;
 import br.com.nobre.model.Person;
 import org.springframework.stereotype.Service;
 
