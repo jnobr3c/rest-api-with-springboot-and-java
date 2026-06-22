@@ -2,7 +2,7 @@ spring:
   application:
     name:rest-api-with-springboot-and-java
   datasource:
-    drive-class-name: com.mysql.cj.jdbc.driver
+    drive-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/rest_api_with_springboot?useTimezone=true&serverTimeZone=UTC
     username: root
     password: admin123
@@ -11,5 +11,5 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: false
+    open-in-view: false
