@@ -1,7 +1,5 @@
 package br.com.nobre.data.dto;
 
-import jakarta.persistence.*;
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,7 +10,7 @@ public class PersonDTO implements Serializable {
     private Long id;
     private String firstName;
     private String lastName;
-    private String adress;
+    private String address;
     private String gender;
 
     public PersonDTO() {}
@@ -41,12 +39,12 @@ public class PersonDTO implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getGender() {
@@ -60,11 +58,11 @@ public class PersonDTO implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof PersonDTO person)) return false;
-        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName()) && Objects.equals(getLastName(), person.getLastName()) && Objects.equals(getAdress(), person.getAdress()) && Objects.equals(getGender(), person.getGender());
+        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName()) && Objects.equals(getLastName(), person.getLastName()) && Objects.equals(getAddress(), person.getAddress()) && Objects.equals(getGender(), person.getGender());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getFirstName(), getLastName(), getAdress(), getGender());
+        return Objects.hash(getId(), getFirstName(), getLastName(), getAddress(), getGender());
     }
 }
