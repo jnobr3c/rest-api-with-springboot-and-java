@@ -1,5 +1,8 @@
 package br.com.nobre.services;
+import br.com.nobre.data.dto.PersonDTO;
 import br.com.nobre.exception.ResourceNotFoundException;
+import static br.com.nobre.mapper.ObjectMapper.parseListObjects;
+import static br.com.nobre.mapper.ObjectMapper.parseObject;
 import br.com.nobre.model.Person;
 import br.com.nobre.repository.PersonRepository;
 import org.slf4j.Logger;
@@ -19,28 +22,30 @@ public class PersonServices {
     @Autowired
     PersonRepository repository;
 
-    public List <Person> findAll() {
+    public List <PersonDTO> findAll() {
 
         logger.info("Finding all People!");
 
-        return repository.findAll();
+        return parseListObjects(repository.findAll(), PersonDTO.class);
     }
 
-    public Person findById(Long id) {
+    public PersonDTO findById(Long id) {
         logger.info("Finding one Person!");
 
-        return repository.findById(id)
+        var entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records found with ID: " + id));
+        return parseObject(entity, PersonDTO.class);
     }
 
-    public Person create(Person person) {
+    public PersonDTO create(PersonDTO person) {
 
         logger.info("Creating one Person!");
+        var entity = parseObject(person, Person.class);
 
-        return repository.save(person);
+        return parseObject(repository.save(entity), PersonDTO.class);
     }
 
-    public Person update(Person person) {
+    public PersonDTO update(PersonDTO person) {
 
         logger.info("Updating one Person!");
         Person entity = repository.findById(person.getId())
@@ -50,7 +55,7 @@ public class PersonServices {
         entity.setAddress(person.getAddress());
         entity.setGender(person.getGender());
 
-        return repository.save(person);
+        return parseObject(repository.save(entity), PersonDTO.class);
     }
 
     public void delete(Long id) {
