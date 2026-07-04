@@ -3,7 +3,7 @@ package br.com.nobre.unitetests.mapper.mocks;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.nobre.data.dto.PersonDTO;
+import br.com.nobre.data.dto.v1.PersonDTO;
 import br.com.nobre.model.Person;
 
 public class MockPerson {
