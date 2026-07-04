@@ -4,6 +4,8 @@ import br.com.nobre.data.dto.v2.PersonDTOV2;
 import br.com.nobre.exception.ResourceNotFoundException;
 import static br.com.nobre.mapper.ObjectMapper.parseListObjects;
 import static br.com.nobre.mapper.ObjectMapper.parseObject;
+
+import br.com.nobre.mapper.custom.PersonMapper;
 import br.com.nobre.model.Person;
 import br.com.nobre.repository.PersonRepository;
 import org.slf4j.Logger;
@@ -22,6 +24,9 @@ public class PersonServices {
 
     @Autowired
     PersonRepository repository;
+
+    @Autowired
+    PersonMapper converter;
 
     public List <PersonDTO> findAll() {
 
@@ -48,10 +53,10 @@ public class PersonServices {
 
     public PersonDTOV2 createV2(PersonDTOV2 person) {
 
-        logger.info("Creating one Person!");
-        var entity = parseObject(person, Person.class);
+        logger.info("Creating one Person V2!");
+        var entity = converter.convertDTOtoEntity(person);
 
-        return parseObject(repository.save(entity), PersonDTO.class); // Dozer não resolve, será necessario criar um mapper especifico p PersonDTOV2 e de PersonDTOV2 para Entidade
+        return converter.convertEntityToDTO(repository.save(entity)); // Dozer não resolve, será necessario criar um mapper especifico p PersonDTOV2 e de PersonDTOV2 para Entidade
     }
 
     public PersonDTO update(PersonDTO person) {
