@@ -41,7 +41,7 @@ public class PersonController {
         return service.create(person);
     }
 
-    @RequestMapping(name = "/v2",
+    @RequestMapping(value = "/v2",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
