@@ -1,5 +1,0 @@
-# Created at 2026-06-02T05:58:06.732
-Boot Manifest-JAR contains absolute paths in classpath 'F:\Curso Spring Boot 2026 REST APIs do 0 a AWS e GCP c Java e Docker\Projeto\rest-api-with-springboot-and-java\target\test-classes'
-Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-'other' has different root
-

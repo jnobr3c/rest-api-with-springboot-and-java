@@ -1,1 +1,13 @@
+br\com\nobre\mapper\ObjectMapper.class
+br\com\nobre\exception\handler\CustomEntityResponseHandler.class
+br\com\nobre\repository\PersonRepository.class
+br\com\nobre\exception\ExceptionResponse.class
+br\com\nobre\model\Person.class
+br\com\nobre\controllers\PersonController.class
+br\com\nobre\data\dto\v2\PersonDTOV2.class
+br\com\nobre\mapper\custom\PersonMapper.class
+br\com\nobre\exception\ResourceNotFoundException.class
+br\com\nobre\data\dto\v1\PersonDTO.class
+br\com\nobre\controllers\TestLogController.class
 br\com\nobre\Startup.class
+br\com\nobre\services\PersonServices.class

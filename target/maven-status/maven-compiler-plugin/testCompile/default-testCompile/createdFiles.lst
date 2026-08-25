@@ -1,1 +1,3 @@
+br\com\nobre\unitetests\mapper\mocks\MockPerson.class
 br\com\nobre\StartupTests.class
+br\com\nobre\unitetests\mapper\ObjectMapperTests.class
