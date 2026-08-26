@@ -1,8 +1,11 @@
 package br.com.nobre.data.dto.v2;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+
 
 public class PersonDTOV2 implements Serializable {
 
