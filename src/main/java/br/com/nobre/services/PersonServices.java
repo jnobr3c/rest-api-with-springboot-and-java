@@ -1,4 +1,5 @@
 package br.com.nobre.services;
+import br.com.nobre.controllers.PersonController;
 import br.com.nobre.data.dto.v1.PersonDTO;
 import br.com.nobre.data.dto.v2.PersonDTOV2;
 import br.com.nobre.exception.ResourceNotFoundException;
@@ -11,6 +12,9 @@ import br.com.nobre.repository.PersonRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,7 +44,9 @@ public class PersonServices {
 
         var entity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No records found with ID: " + id));
-        return parseObject(entity, PersonDTO.class);
+        var dto = parseObject(entity, PersonDTO.class);
+        dto.add(linkTo(methodOn(PersonController.class).findById(id)).withSelfRel().withType("GET"));
+        return dto;
     }
 
     public PersonDTO create(PersonDTO person) {
